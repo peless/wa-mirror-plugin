@@ -11,7 +11,7 @@ The owner runs this on demand, in a dedicated Cowork space with only the wa-mirr
 
 ## Tools
 
-This skill calls only these five wa-mirror tools: `run_sync_now`, `review_request`, `review_store`, `digest_build`, `status`. It calls no other wa-mirror tool and no other tool of any kind, and it never runs shell commands or opens files or web pages. If a step seems to need anything else, stop and report it in your reply.
+The loop calls only these five wa-mirror tools: `run_sync_now`, `review_request`, `review_store`, `digest_build`, `status`. After the digest is delivered, and only when the owner asks about its ⚪ line, the skill may call the read-only `direct` tool with `bucket="read"` (older chats: `bucket="all"`), and no other tool (ADR-0024). Apart from these, the skill calls no other wa-mirror tool and no other tool of any kind, and it never runs shell commands or opens files or web pages. If a step seems to need anything else, stop and report it in your reply.
 
 ## Loop
 
@@ -25,6 +25,10 @@ This skill calls only these five wa-mirror tools: `run_sync_now`, `review_reques
 ## Reply
 
 The first line of your reply is `wa-mirror: <health.status>` and nothing else (the health status only). Then give `data.output_md` exactly as returned. Add nothing to it: no summary, no extra items, no commentary on messages. Code wrote it; the only model text in it is the ≈ gists, already verified.
+
+## Direct chats you read
+
+The 🔴 list holds only direct chats that are unread in WhatsApp. Chats the owner read but did not answer in the last few days are one ⚪ count line, with no names. If the owner then asks to see them ("להציג?", "show the ones I read"), that is a new request after this digest: call the `direct` tool with `bucket="read"` (exactly the chats the line counted) and list them with name, age and excerpt. When an item's `excerpt` is null or empty, show its `type` label instead, the same labels as the digest (📷 תמונה, 🎬 סרטון, 🎵 קובץ שמע, 📄 מסמך, 👤 איש קשר, 📍 מיקום, 🙂 סטיקר, 🎤 קולית), or (ריק) for a text with nothing in it. For older read chats use `bucket="all"`. `direct` is a read tool; it changes nothing.
 
 <!-- shared:begin -->
 ## Rubric (rubric-v1)
