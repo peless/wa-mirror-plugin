@@ -1,0 +1,13 @@
+{
+  "name": "wa-mirror",
+  "version": "0.1.0",
+  "description": "Read-only local mirror of the WhatsApp macOS database: daily digest, triage and drafts. It never sends a message.",
+  "author": {
+    "name": "wa-mirror contributors"
+  },
+  "mcpServers": {
+    "wa-mirror": {
+      "command": "${CLAUDE_PLUGIN_ROOT}/scripts/run.sh"
+    }
+  }
+}

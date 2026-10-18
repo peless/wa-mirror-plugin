@@ -1,0 +1,14 @@
+{
+  "name": "wa-mirror",
+  "owner": {
+    "name": "wa-mirror"
+  },
+  "description": "Marketplace for the wa-mirror plugin: a read-only local mirror of the WhatsApp macOS database for Claude.",
+  "plugins": [
+    {
+      "name": "wa-mirror",
+      "source": "./plugin",
+      "description": "Read-only local mirror of the WhatsApp macOS database: daily digest, triage and drafts. It never sends a message."
+    }
+  ]
+}
